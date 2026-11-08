@@ -1,2 +1,15 @@
-# nyx3-pytorch-mlp
-A 3-layer Multi-Layer Perceptron (MLP) built from scratch using PyTorch to classify Fashion-MNIST images. Features complete modular scripts for model definition, training loops, validation checkpointing and visual predictions
+# NYX-3
+
+A three-trainable-layer Multi-Layer Perceptron (MLP)
+image classifier built with PyTorch.
+
+## Dataset
+Fashion-MNIST
+
+## Tech Stack
+- Python
+- PyTorch
+- TorchVision
+
+## Project Status
+In development
