@@ -1,3 +1,4 @@
+
 name: NYX-3 CI
 
 on:
@@ -9,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  code-quality:
-    name: Python Code Quality
+  test:
+    name: Lint and Test
     runs-on: ubuntu-latest
 
     steps:
@@ -20,13 +21,22 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
+          python-version: "3.14"
 
-      - name: Install Ruff
-        run: python -m pip install ruff
+      - name: Install development tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest ruff
 
-      - name: Check Python code quality
+      - name: Install CPU PyTorch
+        run: |
+          python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Check code quality
         run: ruff check .
 
       - name: Check Python syntax
-        run: python -m compileall -q .
+        run: python -m compileall -q src tests
+
+      - name: Run unit tests
+        run: python -m pytest -v
