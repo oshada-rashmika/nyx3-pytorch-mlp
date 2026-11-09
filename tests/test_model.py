@@ -5,6 +5,7 @@ from torch import nn
 
 from src.model import NYX3
 
+
 def test_model_has_three_trainable_layers():
     """NYX-3 must contain exactly three Linear layers."""
     model = NYX3()
