@@ -20,7 +20,6 @@ from src.training import (
     train_one_epoch,
 )
 
-
 EPOCHS = 10
 SEED = 42
 
